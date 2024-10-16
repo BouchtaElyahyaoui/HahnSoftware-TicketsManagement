@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\Migrations\\20241016210338_Initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:tickets-management-api\\Migrations\\20241016210338_Initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5012FD7F-F72E-4965-B53B-B8E6117F0F04}|tickets-management-api\\tickets-management-api.csproj|c:\\users\\setup game\\desktop\\hahnsoftware-ticketsmanagement\\backend\\tickets-management-api\\tickets-management-api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{5012FD7F-F72E-4965-B53B-B8E6117F0F04}|tickets-management-api\\tickets-management-api.csproj|solutionrelative:tickets-management-api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -51,32 +55,44 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "20241016210338_Initial.cs",
+              "DocumentMoniker": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\Migrations\\20241016210338_Initial.cs",
+              "RelativeDocumentMoniker": "tickets-management-api\\Migrations\\20241016210338_Initial.cs",
+              "ToolTip": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\Migrations\\20241016210338_Initial.cs",
+              "RelativeToolTip": "tickets-management-api\\Migrations\\20241016210338_Initial.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T21:03:38.292Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\appsettings.json",
               "RelativeDocumentMoniker": "tickets-management-api\\appsettings.json",
               "ToolTip": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\appsettings.json",
               "RelativeToolTip": "tickets-management-api\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-10-16T20:57:22.578Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "tickets-management-api",
+              "DocumentIndex": 4,
+              "Title": "tickets-management-api.csproj",
               "DocumentMoniker": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\tickets-management-api.csproj",
               "RelativeDocumentMoniker": "tickets-management-api\\tickets-management-api.csproj",
               "ToolTip": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\tickets-management-api.csproj",
               "RelativeToolTip": "tickets-management-api\\tickets-management-api.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-10-16T20:52:08.722Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T20:52:08.722Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\Program.cs",
               "RelativeDocumentMoniker": "tickets-management-api\\Program.cs",
@@ -84,12 +100,11 @@
               "RelativeToolTip": "tickets-management-api\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T19:55:50.609Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T19:55:50.609Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "TicketsController.cs",
               "DocumentMoniker": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\Controllers\\TicketsController.cs",
               "RelativeDocumentMoniker": "tickets-management-api\\Controllers\\TicketsController.cs",
@@ -97,12 +112,11 @@
               "RelativeToolTip": "tickets-management-api\\Controllers\\TicketsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T19:53:41.371Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T19:53:41.371Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "TicketService.cs",
               "DocumentMoniker": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\services\\TicketService.cs",
               "RelativeDocumentMoniker": "tickets-management-api\\services\\TicketService.cs",
@@ -110,12 +124,11 @@
               "RelativeToolTip": "tickets-management-api\\services\\TicketService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T19:50:57.071Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T19:50:57.071Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "ITicketService.cs",
               "DocumentMoniker": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\services\\ITicketService.cs",
               "RelativeDocumentMoniker": "tickets-management-api\\services\\ITicketService.cs",
@@ -123,12 +136,11 @@
               "RelativeToolTip": "tickets-management-api\\services\\ITicketService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T19:50:41.576Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T19:50:41.576Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "TicketRepository .cs",
               "DocumentMoniker": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\Repositories\\TicketRepository .cs",
               "RelativeDocumentMoniker": "tickets-management-api\\Repositories\\TicketRepository .cs",
@@ -136,12 +148,11 @@
               "RelativeToolTip": "tickets-management-api\\Repositories\\TicketRepository .cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T19:41:40.544Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T19:41:40.544Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ITicketRepository.cs",
               "DocumentMoniker": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\Repositories\\ITicketRepository.cs",
               "RelativeDocumentMoniker": "tickets-management-api\\Repositories\\ITicketRepository.cs",
@@ -149,12 +160,11 @@
               "RelativeToolTip": "tickets-management-api\\Repositories\\ITicketRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T19:41:12.284Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T19:41:12.284Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "DataContext.cs",
               "DocumentMoniker": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\Data\\DataContext.cs",
               "RelativeDocumentMoniker": "tickets-management-api\\Data\\DataContext.cs",
@@ -162,8 +172,7 @@
               "RelativeToolTip": "tickets-management-api\\Data\\DataContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T19:40:34.862Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T19:40:34.862Z"
             }
           ]
         }
