@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
 using tickets_management_api.Data;
 using tickets_management_api.Models;
 

@@ -3,14 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5012FD7F-F72E-4965-B53B-B8E6117F0F04}|tickets-management-api\\tickets-management-api.csproj|c:\\users\\setup game\\desktop\\hahnsoftware-ticketsmanagement\\backend\\tickets-management-api\\tickets-management-api\\services\\ticketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5012FD7F-F72E-4965-B53B-B8E6117F0F04}|tickets-management-api\\tickets-management-api.csproj|solutionrelative:tickets-management-api\\services\\ticketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5012FD7F-F72E-4965-B53B-B8E6117F0F04}|tickets-management-api\\tickets-management-api.csproj|c:\\users\\setup game\\desktop\\hahnsoftware-ticketsmanagement\\backend\\tickets-management-api\\tickets-management-api\\services\\iticketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5012FD7F-F72E-4965-B53B-B8E6117F0F04}|tickets-management-api\\tickets-management-api.csproj|solutionrelative:tickets-management-api\\services\\iticketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5012FD7F-F72E-4965-B53B-B8E6117F0F04}|tickets-management-api\\tickets-management-api.csproj|c:\\users\\setup game\\desktop\\hahnsoftware-ticketsmanagement\\backend\\tickets-management-api\\tickets-management-api\\repositories\\ticketrepository .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5012FD7F-F72E-4965-B53B-B8E6117F0F04}|tickets-management-api\\tickets-management-api.csproj|solutionrelative:tickets-management-api\\repositories\\ticketrepository .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -35,45 +27,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TicketService.cs",
-              "DocumentMoniker": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\services\\TicketService.cs",
-              "RelativeDocumentMoniker": "tickets-management-api\\services\\TicketService.cs",
-              "ToolTip": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\services\\TicketService.cs",
-              "RelativeToolTip": "tickets-management-api\\services\\TicketService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T19:50:57.071Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ITicketService.cs",
-              "DocumentMoniker": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\services\\ITicketService.cs",
-              "RelativeDocumentMoniker": "tickets-management-api\\services\\ITicketService.cs",
-              "ToolTip": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\services\\ITicketService.cs",
-              "RelativeToolTip": "tickets-management-api\\services\\ITicketService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T19:50:41.576Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "TicketRepository .cs",
               "DocumentMoniker": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\Repositories\\TicketRepository .cs",
               "RelativeDocumentMoniker": "tickets-management-api\\Repositories\\TicketRepository .cs",
               "ToolTip": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\Repositories\\TicketRepository .cs",
               "RelativeToolTip": "tickets-management-api\\Repositories\\TicketRepository .cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-16T19:41:40.544Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "ITicketRepository.cs",
               "DocumentMoniker": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\Repositories\\ITicketRepository.cs",
               "RelativeDocumentMoniker": "tickets-management-api\\Repositories\\ITicketRepository.cs",
@@ -86,7 +52,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "DataContext.cs",
               "DocumentMoniker": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\Data\\DataContext.cs",
               "RelativeDocumentMoniker": "tickets-management-api\\Data\\DataContext.cs",
@@ -94,7 +60,8 @@
               "RelativeToolTip": "tickets-management-api\\Data\\DataContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T19:40:34.862Z"
+              "WhenOpened": "2024-10-16T19:40:34.862Z",
+              "EditorCaption": ""
             }
           ]
         }
