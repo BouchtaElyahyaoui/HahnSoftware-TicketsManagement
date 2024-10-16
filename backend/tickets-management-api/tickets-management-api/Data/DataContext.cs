@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 using tickets_management_api.Models;
 
 namespace tickets_management_api.Data
