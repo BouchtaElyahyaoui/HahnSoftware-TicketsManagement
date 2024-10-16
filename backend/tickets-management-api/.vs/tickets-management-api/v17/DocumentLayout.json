@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5012FD7F-F72E-4965-B53B-B8E6117F0F04}|tickets-management-api\\tickets-management-api.csproj|c:\\users\\setup game\\desktop\\hahnsoftware-ticketsmanagement\\backend\\tickets-management-api\\tickets-management-api\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5012FD7F-F72E-4965-B53B-B8E6117F0F04}|tickets-management-api\\tickets-management-api.csproj|solutionrelative:tickets-management-api\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Ticket.cs",
+              "DocumentMoniker": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\Models\\Ticket.cs",
+              "RelativeDocumentMoniker": "tickets-management-api\\Models\\Ticket.cs",
+              "ToolTip": "C:\\Users\\Setup Game\\Desktop\\HahnSoftware-TicketsManagement\\backend\\tickets-management-api\\tickets-management-api\\Models\\Ticket.cs",
+              "RelativeToolTip": "tickets-management-api\\Models\\Ticket.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T19:12:49.819Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
