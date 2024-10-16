@@ -3,6 +3,8 @@ using tickets_management_api.services;
 
 namespace tickets_management_api.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class TicketsController : ControllerBase
     {
         private readonly ITicketService _service;
