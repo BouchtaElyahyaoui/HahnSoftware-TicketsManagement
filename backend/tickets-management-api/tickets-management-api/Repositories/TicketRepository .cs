@@ -24,5 +24,11 @@ namespace tickets_management_api.Repositories
             await _dataContext.SaveChangesAsync();
             return ticket;
         }
+
+        public async Task UpdateTicket(Ticket ticket)
+        {
+            _dataContext.Entry(ticket).State = EntityState.Modified;
+            await _dataContext.SaveChangesAsync();
+        }
     }
 }

@@ -29,5 +29,16 @@ namespace tickets_management_api.Controllers
             var tickets = await _service.GetAllTickets();
             return Ok(tickets);
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateTicket(int id, Ticket ticket)
+        {
+            if (id != ticket.Id)
+            {
+                return BadRequest();
+            }
+            await _service.UpdateTicket(ticket);
+            return NoContent();
+        }
     }
 }

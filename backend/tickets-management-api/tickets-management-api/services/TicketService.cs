@@ -22,5 +22,12 @@ namespace tickets_management_api.services
             ticket.CreatedAt = DateTime.UtcNow;
             return await _repository.CreateTicket(ticket);
         }
+
+        public async Task UpdateTicket(Ticket ticket)
+        {
+            await _repository.UpdateTicket(ticket);
+        }
+
+
     }
 }

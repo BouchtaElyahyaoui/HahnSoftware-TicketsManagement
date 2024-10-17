@@ -8,6 +8,9 @@ namespace tickets_management_api.services
 
         Task<Ticket> CreateTicket(Ticket ticket);
 
+        Task UpdateTicket(Ticket ticket);
+
+
 
     }
 }
