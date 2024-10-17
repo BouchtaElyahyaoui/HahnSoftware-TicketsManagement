@@ -5,6 +5,8 @@ namespace tickets_management_api.Repositories
     public interface ITicketRepository
     {
         Task<IEnumerable<Ticket>> GetAllTickets();
-       
+        Task<Ticket> CreateTicket(Ticket ticket);
+
+
     }
 }

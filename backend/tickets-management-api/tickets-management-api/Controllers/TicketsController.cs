@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using tickets_management_api.Models;
 using tickets_management_api.services;
 
 namespace tickets_management_api.Controllers
@@ -17,6 +18,14 @@ namespace tickets_management_api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllTickets()
         {
+            var tickets = await _service.GetAllTickets();
+            return Ok(tickets);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateTicket(Ticket ticket)
+        {
+            var createdTicket = await _service.CreateTicket(ticket);
             var tickets = await _service.GetAllTickets();
             return Ok(tickets);
         }

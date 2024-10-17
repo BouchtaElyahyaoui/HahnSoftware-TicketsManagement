@@ -5,5 +5,9 @@ namespace tickets_management_api.services
     public interface ITicketService
     {
         Task<IEnumerable<Ticket>> GetAllTickets();
+
+        Task<Ticket> CreateTicket(Ticket ticket);
+
+
     }
 }

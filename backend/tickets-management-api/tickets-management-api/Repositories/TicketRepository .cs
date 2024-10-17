@@ -17,5 +17,12 @@ namespace tickets_management_api.Repositories
         {
             return await _dataContext.Tickets.ToListAsync();
         }
+
+        public async Task<Ticket> CreateTicket(Ticket ticket)
+        {
+            _dataContext.Tickets.Add(ticket);
+            await _dataContext.SaveChangesAsync();
+            return ticket;
+        }
     }
 }
