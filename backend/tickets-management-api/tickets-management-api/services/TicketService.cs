@@ -27,6 +27,10 @@ namespace tickets_management_api.services
         {
             await _repository.UpdateTicket(ticket);
         }
+        public async Task DeleteTicket(int id)
+        {
+            await _repository.DeleteTicket(id);
+        }
 
 
     }

@@ -7,7 +7,7 @@ namespace tickets_management_api.Repositories
         Task<IEnumerable<Ticket>> GetAllTickets();
         Task<Ticket> CreateTicket(Ticket ticket);
         Task UpdateTicket(Ticket ticket);
-
+        Task DeleteTicket(int id);
 
 
     }

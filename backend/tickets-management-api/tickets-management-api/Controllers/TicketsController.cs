@@ -40,5 +40,12 @@ namespace tickets_management_api.Controllers
             await _service.UpdateTicket(ticket);
             return NoContent();
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteTicket(int id)
+        {
+            await _service.DeleteTicket(id);
+            return NoContent();
+        }
     }
 }

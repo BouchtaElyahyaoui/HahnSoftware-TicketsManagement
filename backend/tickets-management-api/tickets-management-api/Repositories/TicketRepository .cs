@@ -30,5 +30,15 @@ namespace tickets_management_api.Repositories
             _dataContext.Entry(ticket).State = EntityState.Modified;
             await _dataContext.SaveChangesAsync();
         }
+
+        public async Task DeleteTicket(int id)
+        {
+            var ticket = await _dataContext.Tickets.FindAsync(id);
+            if (ticket != null)
+            {
+                _dataContext.Tickets.Remove(ticket);
+                await _dataContext.SaveChangesAsync();
+            }
+        }
     }
 }
