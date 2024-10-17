@@ -11,5 +11,12 @@ namespace tickets_management_api.Data
         }
 
         public DbSet<Ticket> Tickets { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Ticket>()
+                .Property(t => t.Status)
+                .HasConversion<string>();
+        }
     }
 }
