@@ -76,7 +76,8 @@ const TicketTable = () => {
   };
 
   const handleSubmit = () => {
-    createTicket(newTicket).then(() => {
+    createTicket(newTicket).then((tickets) => {
+      setTickets(tickets);
       setNewTicket(initTicket);
       handleClose();
     }).catch(() => {
