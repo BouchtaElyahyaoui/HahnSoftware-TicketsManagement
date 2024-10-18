@@ -5,6 +5,7 @@ import { colors } from '../../theme';
 import { ITicket } from '../../../services/ticket/types';
 import { formatDate } from '../../../services/ticket/shared/helperFunctions';
 import { AddButton } from '../TableFooter/TableFooter.style';
+import EmptyState from '../EmptyState/EmptyState';
 
 interface ITableDataProps {
   tickets:ITicket[];
@@ -46,27 +47,7 @@ const TableData:FC<ITableDataProps> = ({tickets,handleEdit,handleDeleteTicket,ha
             ))}
           </TableBody>
         </Table>
-          ) : (<Box 
-          sx={{ 
-            display: 'flex', 
-            flexDirection: 'column', 
-            alignItems: 'center', 
-            justifyContent: 'center', 
-            height: '200px', 
-            backgroundColor: colors.background 
-          }}
-        >
-          <Typography variant="h6" gutterBottom>
-            No tickets found
-          </Typography>
-          <Typography variant="body1" gutterBottom>
-            Get started by creating a new ticket
-          </Typography>
-          <AddButton variant="contained" onClick={handleClickOpen}  sx={{ mt: 2 }}>
-            Add New Ticket
-          </AddButton>
-        </Box>
-  )
+          ) : (<EmptyState onAddNew={handleClickOpen} />)
 }
 
 export default TableData
