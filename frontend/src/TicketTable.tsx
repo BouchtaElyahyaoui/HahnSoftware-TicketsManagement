@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import { 
   Table, 
   TableBody, 
@@ -9,11 +9,21 @@ import {
   Paper, 
   Button,
   styled,
-  Box
+  Box,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  TextField,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  DialogActions,
+  SelectChangeEvent
 } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import theme, { colors } from './theme/theme';
-import { ITicket } from './services/ticket/types';
+import { ITicket, TicketStatusEnum } from './services/ticket/types';
 import { getTickets } from './services/ticket/service';
 import { formatDate } from './services/ticket/shared/helperFunctions';
 
@@ -50,8 +60,45 @@ const AddButton = styled(Button)(({ theme }) => ({
   },
 }));
 
+const initTicket : ITicket = { 
+  id:0,
+  description: '', 
+  status: TicketStatusEnum.OPEN,
+  createdAt:'',
+}
+
 const TicketTable = () => {
   const [tickets,setTickets] = useState<ITicket[]>([]);
+  const [open, setOpen] = useState(false);
+  const [newTicket, setNewTicket] = useState<ITicket>(initTicket);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleDescriptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setNewTicket(prevTicket => ({
+      ...prevTicket,
+      description: event.target.value
+    }));
+  };
+
+  const handleStatusChange = (event: SelectChangeEvent<TicketStatusEnum>) => {
+    setNewTicket(prevTicket => ({
+      ...prevTicket,
+      status: event.target.value as TicketStatusEnum
+    }));
+  };
+
+  const handleSubmit = () => {
+    console.log('New Ticket:', newTicket);
+    handleClose();
+    setNewTicket(initTicket);
+  };
 
   const loadTickets = async () => {
     const tickets = await getTickets();
@@ -93,11 +140,47 @@ const TicketTable = () => {
           </TableBody>
         </Table>
         <Box sx={{ background: colors.background }}>
-          <AddButton variant="contained">
+          <AddButton variant="contained" onClick={handleClickOpen}>
             Add New
           </AddButton>
         </Box>
       </TableContainer>
+      <Dialog open={open} onClose={handleClose} fullWidth>
+        <DialogTitle>Add New Ticket</DialogTitle>
+        <DialogContent>
+          <TextField
+            autoFocus
+            margin="dense"
+            name="description"
+            label="Ticket Description"
+            type="text"
+            fullWidth
+            variant="outlined"
+            value={newTicket.description}
+            onChange={handleDescriptionChange}
+          />
+          <FormControl fullWidth variant="outlined" margin="dense">
+            <InputLabel>Status</InputLabel>
+            <Select
+              name="status"
+              value={newTicket.status}
+              onChange={handleStatusChange}
+              label="Status"
+            >
+              <MenuItem value="OPEN">Open</MenuItem>
+              <MenuItem value="CLOSED">Closed</MenuItem>
+            </Select>
+          </FormControl>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            Cancel
+          </Button>
+          <Button onClick={handleSubmit} color="primary">
+            Add
+          </Button>
+        </DialogActions>
+      </Dialog>
     </ThemeProvider>
   );
 };
