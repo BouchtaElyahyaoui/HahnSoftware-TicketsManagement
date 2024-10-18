@@ -1,11 +1,10 @@
-import { Box, Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material';
-import React, { FC } from 'react'
-import { ActionLink, StyledTableCell } from './TableData.style';
-import { colors } from '../../theme';
-import { ITicket } from '../../../services/ticket/types';
+import { Box, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
+import { FC } from 'react';
 import { formatDate } from '../../../services/ticket/shared/helperFunctions';
-import { AddButton } from '../TableFooter/TableFooter.style';
+import { ITicket } from '../../../services/ticket/types';
+import { colors } from '../../theme';
 import EmptyState from '../EmptyState/EmptyState';
+import { ActionLink, StyledTableCell } from './TableData.style';
 
 interface ITableDataProps {
   tickets:ITicket[];

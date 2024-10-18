@@ -3,12 +3,10 @@ import {
   SelectChangeEvent,
   TableContainer
 } from '@mui/material';
-import { ThemeProvider } from '@mui/material/styles';
 import { useSnackbar } from 'notistack';
 import React, { useCallback, useEffect, useState } from 'react';
 import { createTicket, deleteTicket, editTicket, getPaginatedResult } from '../../../services/ticket/service';
 import { ITicket, TicketStatusEnum } from '../../../services/ticket/types';
-import theme from '../../theme';
 import TableData from '../TableData/TableData';
 import TableFooter from '../TableFooter/TableFooter';
 import TicketDialog from '../TicketFormDialog/TicketDialog';
@@ -145,7 +143,7 @@ const TicketTable = () => {
   }, [loadPaginatedData]);
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <TableContainer component={Paper}>
         <TableData tickets={tickets} handleDeleteTicket={handleDeleteTicket} handleEdit={handleEdit} handleClickOpen={handleClickOpen} />
         {tickets.length > 0 && (
@@ -161,7 +159,7 @@ const TicketTable = () => {
         handleSubmitEdit={handleSubmitEdit}
         ticket={newTicket} 
         descriptionError={descriptionError}/>
-    </ThemeProvider>
+        </>
   );
 };
 
