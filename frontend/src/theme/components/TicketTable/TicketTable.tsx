@@ -1,51 +1,19 @@
 import {
-  Box,
-  Button,
-  FormControl,
-  InputLabel,
-  MenuItem,
   Paper,
-  Select,
   SelectChangeEvent,
-  styled,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow
+  TableContainer
 } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import { useSnackbar } from 'notistack';
 import React, { useCallback, useEffect, useState } from 'react';
 import { createTicket, deleteTicket, editTicket, getPaginatedResult } from '../../../services/ticket/service';
-import { formatDate } from '../../../services/ticket/shared/helperFunctions';
 import { ITicket, TicketStatusEnum } from '../../../services/ticket/types';
-import theme, { colors } from '../../theme';
+import theme from '../../theme';
+import TableData from '../TableData/TableData';
+import TableFooter from '../TableFooter/TableFooter';
 import TicketDialog from '../TicketFormDialog/TicketDialog';
 
-const StyledTableCell = styled(TableCell)(() => ({
-  fontWeight: 'bold',
-  color: colors.white,
-}));
 
-const ActionLink = styled('a')({
-  color: colors.primary,
-  textDecoration: 'none',
-  '&:hover': {
-    textDecoration: 'underline',
-    cursor:'pointer',
-  },
-});
-
-const AddButton = styled(Button)(({ theme }) => ({
-  backgroundColor: colors.primary,
-  color: colors.white,
-  margin: theme.spacing(2),
-  '&:hover': {
-    backgroundColor: colors.primaryHover,
-  },
-}));
 
 const initTicket : ITicket = { 
   id:0,
@@ -171,9 +139,7 @@ const TicketTable = () => {
       console.log("Error when deleting the ticket");
     })
   }
-
-
-
+  
   useEffect(() => {
     loadPaginatedData();
   }, [loadPaginatedData]);
@@ -181,76 +147,8 @@ const TicketTable = () => {
   return (
     <ThemeProvider theme={theme}>
       <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow sx={{ backgroundColor: colors.primary }}>
-              <StyledTableCell>Ticket Id</StyledTableCell>
-              <StyledTableCell>Description</StyledTableCell>
-              <StyledTableCell>Status</StyledTableCell>
-              <StyledTableCell>Date</StyledTableCell>
-              <StyledTableCell>Actions</StyledTableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody sx={{ background: colors.background }}>
-            {tickets.map((ticket) => (
-              <TableRow key={ticket.id}>
-                <TableCell>{ticket.id}</TableCell>
-                <TableCell>{ticket.description}</TableCell>
-                <TableCell>{ticket.status}</TableCell>
-                <TableCell>{formatDate(ticket.createdAt)}</TableCell>
-                <TableCell>
-                  <Box display="flex" gap={1}>
-                    <ActionLink onClick={() => {
-                      handleEdit(ticket);
-                    }}>Update</ActionLink>
-                    <ActionLink  onClick={() => {
-                      handleDeleteTicket(ticket.id);
-                    }}>Delete</ActionLink>
-                  </Box>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-        <Box display="flex" width="100%" justifyContent="space-between" sx={{ background: colors.background }}>
-          <AddButton variant="contained" onClick={handleClickOpen}>
-            Add New
-          </AddButton>
-          <Box>
-        <AddButton 
-          onClick={() => setPage((prevPage) => Math.max(prevPage - 1, 1))} 
-          disabled={page === 1 || totalPages === 0}
-        >
-          Previous
-        </AddButton>
-
-        <span>Page {totalPages === 0 ? 0 : page} of {totalPages}</span>
-
-        <AddButton  
-          onClick={() => setPage((prevPage) => Math.min(prevPage + 1, totalPages))} 
-          disabled={page === totalPages || totalPages === 0}
-        >
-          Next
-        </AddButton>
-        <FormControl size='medium' variant="outlined" margin="dense">
-            <InputLabel>Page Size:</InputLabel>
-            <Select
-              name="status"
-              value={pageSize}
-              onChange={(e) => setPageSize(Number(e.target.value))}
-              label="Page Size:"
-            >
-              <MenuItem value="2">2</MenuItem>
-              <MenuItem value="10">10</MenuItem>
-              <MenuItem value="15">15</MenuItem>
-            </Select>
-          </FormControl>
-        <Box>
-
-        
-      </Box>
-          </Box>
-        </Box>
+        <TableData tickets={tickets} handleDeleteTicket={handleDeleteTicket} handleEdit={handleEdit} />
+        <TableFooter handleClickOpen={handleClickOpen} page={page} pageSize={pageSize} setPage={setPage} setPageSize={setPageSize} totalPages={totalPages} />
       </TableContainer>
       <TicketDialog 
         handleClose={handleClose}
