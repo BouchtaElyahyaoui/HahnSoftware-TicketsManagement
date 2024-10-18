@@ -1,5 +1,5 @@
 import { Box } from "@mui/material"
-import TicketTable from "./TicketTable"
+import TicketTable from "./theme/components/TicketTable/TicketTable"
 
 
 

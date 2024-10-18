@@ -1,42 +1,23 @@
-import React, {  useEffect, useState } from 'react';
-import { 
-  Table, 
-  TableBody, 
-  TableCell, 
-  TableContainer, 
-  TableHead, 
-  TableRow, 
-  Paper, 
-  Button,
-  styled,
+import {
   Box,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  DialogActions,
-  SelectChangeEvent
+  Button,
+  Paper,
+  SelectChangeEvent,
+  styled,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow
 } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
-import theme, { colors } from './theme/theme';
-import { ITicket, TicketStatusEnum } from './services/ticket/types';
-import { getTickets } from './services/ticket/service';
-import { formatDate } from './services/ticket/shared/helperFunctions';
-
-// const tickets = [
-//   { id: 1002, description: 'Promotion code issued', status: 'Open', date: 'May-29-2022' },
-//   { id: 1003, description: 'Additional user account', status: 'Open', date: 'May-27-2022' },
-//   { id: 1004, description: 'Change payment method', status: 'Open', date: 'May-28-2022' },
-//   { id: 1005, description: 'Activate account', status: 'Closed', date: 'May-28-2022' },
-//   { id: 1007, description: 'Great job', status: 'Closed', date: 'May-29-2022' },
-//   { id: 1008, description: 'Another Great Job', status: 'Closed', date: 'May-29-2022' },
-//   { id: 1000, description: 'Help with Login', status: 'Closed', date: 'May-29-2022' },
-//   { id: 1024, description: 'Happy Customer', status: 'Open', date: 'May-29-2022' },
-// ];
+import React, { useEffect, useState } from 'react';
+import { getTickets } from '../../../services/ticket/service';
+import { formatDate } from '../../../services/ticket/shared/helperFunctions';
+import { ITicket, TicketStatusEnum } from '../../../services/ticket/types';
+import theme, { colors } from '../../theme';
+import TicketDialog from '../TicketFormDialog/TicketDialog';
 
 const StyledTableCell = styled(TableCell)(() => ({
   fontWeight: 'bold',
@@ -145,42 +126,13 @@ const TicketTable = () => {
           </AddButton>
         </Box>
       </TableContainer>
-      <Dialog open={open} onClose={handleClose} fullWidth>
-        <DialogTitle>Add New Ticket</DialogTitle>
-        <DialogContent>
-          <TextField
-            autoFocus
-            margin="dense"
-            name="description"
-            label="Ticket Description"
-            type="text"
-            fullWidth
-            variant="outlined"
-            value={newTicket.description}
-            onChange={handleDescriptionChange}
-          />
-          <FormControl fullWidth variant="outlined" margin="dense">
-            <InputLabel>Status</InputLabel>
-            <Select
-              name="status"
-              value={newTicket.status}
-              onChange={handleStatusChange}
-              label="Status"
-            >
-              <MenuItem value="OPEN">Open</MenuItem>
-              <MenuItem value="CLOSED">Closed</MenuItem>
-            </Select>
-          </FormControl>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Cancel
-          </Button>
-          <Button onClick={handleSubmit} color="primary">
-            Add
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <TicketDialog 
+        handleClose={handleClose}
+        handleDescriptionChange={handleDescriptionChange}
+        handleStatusChange={handleStatusChange}
+        open={open}
+        handleSubmit={handleSubmit}
+        ticket={newTicket} />
     </ThemeProvider>
   );
 };
