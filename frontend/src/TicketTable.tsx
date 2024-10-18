@@ -1,3 +1,4 @@
+import React from 'react';
 import { 
   Table, 
   TableBody, 
@@ -8,9 +9,10 @@ import {
   Paper, 
   Button,
   styled,
-  useTheme,
   Box
 } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
+import theme, { colors } from './theme/theme';
 
 const tickets = [
   { id: 1002, description: 'Promotion code issued', status: 'Open', date: 'May-29-2022' },
@@ -23,73 +25,66 @@ const tickets = [
   { id: 1024, description: 'Happy Customer', status: 'Open', date: 'May-29-2022' },
 ];
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
+const StyledTableCell = styled(TableCell)(() => ({
   fontWeight: 'bold',
-  color: theme.palette.common.white,
-  borderRight: "1px solid #cccccc",
-  '&:last-child': {
-    borderRight: 'none',
-  },
+  color: colors.white,
 }));
 
-
+const ActionLink = styled('a')({
+  color: colors.primary,
+  textDecoration: 'none',
+  '&:hover': {
+    textDecoration: 'underline',
+  },
+});
 
 const AddButton = styled(Button)(({ theme }) => ({
-  backgroundColor: '#09b267',
-  color: theme.palette.common.white,
+  backgroundColor: colors.primary,
+  color: colors.white,
   margin: theme.spacing(2),
   '&:hover': {
-    backgroundColor: '#00cd79',
+    backgroundColor: colors.primaryHover,
   },
 }));
 
 const TicketTable = () => {
-  const theme = useTheme();
   return (
-    <TableContainer component={Paper}>
-      <Table>
-        <TableHead>
-          <TableRow sx={{ backgroundColor: '#09b267' }}>
-            <StyledTableCell>Ticket Id</StyledTableCell>
-            <StyledTableCell>Description</StyledTableCell>
-            <StyledTableCell>Status</StyledTableCell>
-            <StyledTableCell>Date</StyledTableCell>
-            <StyledTableCell>Actions</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody sx={{background:"#f2f2f2"}}>
-          {tickets.map((ticket) => (
-            <TableRow key={ticket.id}>
-              <TableCell sx={{
-                borderRight: `1px solid ${theme.palette.divider}`,
-              }}>{ticket.id}</TableCell>
-              <TableCell sx={{
-                borderRight: `1px solid ${theme.palette.divider}`
-              }}>{ticket.description}</TableCell>
-              <TableCell sx={{
-                borderRight: `1px solid ${theme.palette.divider}`
-              }}>{ticket.status}</TableCell>
-              <TableCell sx={{
-                borderRight: `1px solid ${theme.palette.divider}`
-              }}>{ticket.date}</TableCell>
-              <TableCell sx={{
-                borderRight: `1px solid ${theme.palette.divider}`
-              }}>
-                <Box display="flex" gap={1}>
-                <a href='#'>Update</a>
-                <a href='#'>Delete</a>
-                </Box>
-              </TableCell>
+    <ThemeProvider theme={theme}>
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow sx={{ backgroundColor: colors.primary }}>
+              <StyledTableCell>Ticket Id</StyledTableCell>
+              <StyledTableCell>Description</StyledTableCell>
+              <StyledTableCell>Status</StyledTableCell>
+              <StyledTableCell>Date</StyledTableCell>
+              <StyledTableCell>Actions</StyledTableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-      <Box sx={{background:"#f2f2f2"}}>
-      <AddButton variant="contained">
-        Add New
-      </AddButton>
-      </Box>
-    </TableContainer>
+          </TableHead>
+          <TableBody sx={{ background: colors.background }}>
+            {tickets.map((ticket) => (
+              <TableRow key={ticket.id}>
+                <TableCell>{ticket.id}</TableCell>
+                <TableCell>{ticket.description}</TableCell>
+                <TableCell>{ticket.status}</TableCell>
+                <TableCell>{ticket.date}</TableCell>
+                <TableCell>
+                  <Box display="flex" gap={1}>
+                    <ActionLink href='#'>Update</ActionLink>
+                    <ActionLink href='#'>Delete</ActionLink>
+                  </Box>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+        <Box sx={{ background: colors.background }}>
+          <AddButton variant="contained">
+            Add New
+          </AddButton>
+        </Box>
+      </TableContainer>
+    </ThemeProvider>
   );
 };
 
