@@ -18,6 +18,7 @@ import { formatDate } from '../../../services/ticket/shared/helperFunctions';
 import { ITicket, TicketStatusEnum } from '../../../services/ticket/types';
 import theme, { colors } from '../../theme';
 import TicketDialog from '../TicketFormDialog/TicketDialog';
+import { useSnackbar } from 'notistack';
 
 const StyledTableCell = styled(TableCell)(() => ({
   fontWeight: 'bold',
@@ -54,6 +55,31 @@ const TicketTable = () => {
   const [open, setOpen] = useState(false);
   const [newTicket, setNewTicket] = useState<ITicket>(initTicket);
 
+  const { enqueueSnackbar } = useSnackbar()
+
+  const showSuccessMessage = (message:string) => {
+    enqueueSnackbar(message,{
+      autoHideDuration: 1500,
+      anchorOrigin: {
+        horizontal:"center",
+        vertical: "bottom",
+      },
+      variant:'success',
+    });
+  }
+
+  const showErrorMessage = () => {
+    enqueueSnackbar('An error has occured, please try again later',{
+      autoHideDuration: 1500,
+      anchorOrigin: {
+        horizontal:"center",
+        vertical: "bottom",
+      },
+      variant:'success',
+    });
+  }
+
+
   const loadTickets = async () => {
     const tickets = await getTickets();
     setTickets(tickets);
@@ -84,21 +110,25 @@ const TicketTable = () => {
 
   const handleSubmit = () => {
     createTicket(newTicket).then((tickets) => {
+      showSuccessMessage("Ticket has been created successfully");
       setTickets(tickets);
       setNewTicket(initTicket);
       handleClose();
     }).catch(() => {
+      showErrorMessage();
       console.log("Error when submiting the ticket");
     })
   };
 
   const handleSubmitEdit = (ticket:ITicket) => {
     editTicket(ticket.id,ticket).then(() => {
+      showSuccessMessage("Ticket has been edited successfully");
       loadTickets().catch(() => {
         console.log("Could not load new data");
       });
       handleClose();
     }).catch(() => {
+      showErrorMessage();
       console.log("Error when editing the ticket");
     })
   }
@@ -110,11 +140,13 @@ const TicketTable = () => {
 
   const handleDeleteTicket = (id:number) => {
     deleteTicket(id).then(() => {
+      showSuccessMessage("Ticket deleted successsfully")
       loadTickets().catch(() => {
         console.log("Could not load new data");
       });
       handleClose();
     }).catch(() => {
+      showErrorMessage();
       console.log("Error when deleting the ticket");
     })
   }
