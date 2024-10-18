@@ -18,3 +18,7 @@ export const createTicket = async (ticket:ITicket) : Promise<ITicket[]> => {
 export const editTicket = async (id:number,ticket:ITicket) : Promise<void> => {
   await axios.put(`${API_URL}/${id}`,ticket)
 }
+
+export const deleteTicket = async (id:number) : Promise<void> => {
+  await axios.delete(`${API_URL}/${id}`)
+}

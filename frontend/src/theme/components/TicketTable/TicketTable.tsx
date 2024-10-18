@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import React, { useEffect, useState } from 'react';
-import { createTicket, editTicket, getTickets } from '../../../services/ticket/service';
+import { createTicket, deleteTicket, editTicket, getTickets } from '../../../services/ticket/service';
 import { formatDate } from '../../../services/ticket/shared/helperFunctions';
 import { ITicket, TicketStatusEnum } from '../../../services/ticket/types';
 import theme, { colors } from '../../theme';
@@ -108,6 +108,17 @@ const TicketTable = () => {
     handleClickOpen();
   }
 
+  const handleDeleteTicket = (id:number) => {
+    deleteTicket(id).then(() => {
+      loadTickets().catch(() => {
+        console.log("Could not load new data");
+      });
+      handleClose();
+    }).catch(() => {
+      console.log("Error when deleting the ticket");
+    })
+  }
+
 
 
   useEffect(() => {
@@ -139,7 +150,9 @@ const TicketTable = () => {
                     <ActionLink onClick={() => {
                       handleEdit(ticket);
                     }}>Update</ActionLink>
-                    <ActionLink href='#'>Delete</ActionLink>
+                    <ActionLink  onClick={() => {
+                      handleDeleteTicket(ticket.id);
+                    }}>Delete</ActionLink>
                   </Box>
                 </TableCell>
               </TableRow>
