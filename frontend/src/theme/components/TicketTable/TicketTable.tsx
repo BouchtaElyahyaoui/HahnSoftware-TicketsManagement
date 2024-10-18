@@ -29,6 +29,7 @@ const ActionLink = styled('a')({
   textDecoration: 'none',
   '&:hover': {
     textDecoration: 'underline',
+    cursor:'pointer',
   },
 });
 
@@ -59,6 +60,7 @@ const TicketTable = () => {
 
   const handleClose = () => {
     setOpen(false);
+    setNewTicket(initTicket);
   };
 
   const handleDescriptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -81,9 +83,18 @@ const TicketTable = () => {
       setNewTicket(initTicket);
       handleClose();
     }).catch(() => {
-      console.log("Error when ssubmiting the ticket");
+      console.log("Error when submiting the ticket");
     })
   };
+
+  const handleSubmitEdit = () => {
+    console.log("You ruun")
+  }
+
+  const handleEdit = (ticket:ITicket) => {
+    setNewTicket(ticket);
+    handleClickOpen();
+  }
 
   const loadTickets = async () => {
     const tickets = await getTickets();
@@ -116,7 +127,9 @@ const TicketTable = () => {
                 <TableCell>{formatDate(ticket.createdAt)}</TableCell>
                 <TableCell>
                   <Box display="flex" gap={1}>
-                    <ActionLink href='#'>Update</ActionLink>
+                    <ActionLink onClick={() => {
+                      handleEdit(ticket);
+                    }}>Update</ActionLink>
                     <ActionLink href='#'>Delete</ActionLink>
                   </Box>
                 </TableCell>
@@ -135,7 +148,7 @@ const TicketTable = () => {
         handleDescriptionChange={handleDescriptionChange}
         handleStatusChange={handleStatusChange}
         open={open}
-        handleSubmit={handleSubmit}
+        handleSubmit={newTicket.id === 0 ? handleSubmit : handleSubmitEdit}
         ticket={newTicket} />
     </ThemeProvider>
   );
