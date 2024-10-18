@@ -14,3 +14,7 @@ export const createTicket = async (ticket:ITicket) : Promise<ITicket[]> => {
   const response = await axios.post(API_URL, ticket);
   return response.data as ITicket[];
 };
+
+export const editTicket = async (id:number,ticket:ITicket) : Promise<void> => {
+  await axios.put(`${API_URL}/${id}`,ticket)
+}

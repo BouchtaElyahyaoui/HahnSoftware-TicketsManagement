@@ -9,9 +9,10 @@ interface ITicketDialogProps {
   handleDescriptionChange : (event: ChangeEvent<HTMLInputElement>) => void;
   handleStatusChange:(event: SelectChangeEvent<TicketStatusEnum>) => void;
   handleSubmit: () => void;
+  handleSubmitEdit: (ticket:ITicket) => void;
 }
 
-const TicketDialog : FC<ITicketDialogProps> = ({open,ticket,handleClose,handleDescriptionChange,handleStatusChange,handleSubmit}) => {
+const TicketDialog : FC<ITicketDialogProps> = ({open,ticket,handleClose,handleDescriptionChange,handleStatusChange,handleSubmit,handleSubmitEdit}) => {
   return (
     <Dialog open={open} onClose={handleClose} fullWidth>
         <DialogTitle>Add New Ticket</DialogTitle>
@@ -44,7 +45,13 @@ const TicketDialog : FC<ITicketDialogProps> = ({open,ticket,handleClose,handleDe
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleSubmit} color="primary">
+          <Button onClick={() => {
+            if(ticket.id === 0) {
+              handleSubmit();
+            } else {
+              handleSubmitEdit(ticket);
+            }
+          }} color="primary">
             Add
           </Button>
         </DialogActions>

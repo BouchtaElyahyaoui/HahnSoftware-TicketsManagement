@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import React, { useEffect, useState } from 'react';
-import { createTicket, getTickets } from '../../../services/ticket/service';
+import { createTicket, editTicket, getTickets } from '../../../services/ticket/service';
 import { formatDate } from '../../../services/ticket/shared/helperFunctions';
 import { ITicket, TicketStatusEnum } from '../../../services/ticket/types';
 import theme, { colors } from '../../theme';
@@ -54,6 +54,11 @@ const TicketTable = () => {
   const [open, setOpen] = useState(false);
   const [newTicket, setNewTicket] = useState<ITicket>(initTicket);
 
+  const loadTickets = async () => {
+    const tickets = await getTickets();
+    setTickets(tickets);
+  };
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -87,8 +92,15 @@ const TicketTable = () => {
     })
   };
 
-  const handleSubmitEdit = () => {
-    console.log("You ruun")
+  const handleSubmitEdit = (ticket:ITicket) => {
+    editTicket(ticket.id,ticket).then(() => {
+      loadTickets().catch(() => {
+        console.log("Could not load new data");
+      });
+      handleClose();
+    }).catch(() => {
+      console.log("Error when editing the ticket");
+    })
   }
 
   const handleEdit = (ticket:ITicket) => {
@@ -96,10 +108,7 @@ const TicketTable = () => {
     handleClickOpen();
   }
 
-  const loadTickets = async () => {
-    const tickets = await getTickets();
-    setTickets(tickets);
-  };
+
 
   useEffect(() => {
     loadTickets();
@@ -148,7 +157,8 @@ const TicketTable = () => {
         handleDescriptionChange={handleDescriptionChange}
         handleStatusChange={handleStatusChange}
         open={open}
-        handleSubmit={newTicket.id === 0 ? handleSubmit : handleSubmitEdit}
+        handleSubmit={handleSubmit}
+        handleSubmitEdit={handleSubmitEdit}
         ticket={newTicket} />
     </ThemeProvider>
   );
