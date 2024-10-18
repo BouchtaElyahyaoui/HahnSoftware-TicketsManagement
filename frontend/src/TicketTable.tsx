@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { 
   Table, 
   TableBody, 
@@ -13,17 +13,19 @@ import {
 } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import theme, { colors } from './theme/theme';
+import { ITicket } from './services/ticket/types';
+import { getTickets } from './services/ticket/service';
 
-const tickets = [
-  { id: 1002, description: 'Promotion code issued', status: 'Open', date: 'May-29-2022' },
-  { id: 1003, description: 'Additional user account', status: 'Open', date: 'May-27-2022' },
-  { id: 1004, description: 'Change payment method', status: 'Open', date: 'May-28-2022' },
-  { id: 1005, description: 'Activate account', status: 'Closed', date: 'May-28-2022' },
-  { id: 1007, description: 'Great job', status: 'Closed', date: 'May-29-2022' },
-  { id: 1008, description: 'Another Great Job', status: 'Closed', date: 'May-29-2022' },
-  { id: 1000, description: 'Help with Login', status: 'Closed', date: 'May-29-2022' },
-  { id: 1024, description: 'Happy Customer', status: 'Open', date: 'May-29-2022' },
-];
+// const tickets = [
+//   { id: 1002, description: 'Promotion code issued', status: 'Open', date: 'May-29-2022' },
+//   { id: 1003, description: 'Additional user account', status: 'Open', date: 'May-27-2022' },
+//   { id: 1004, description: 'Change payment method', status: 'Open', date: 'May-28-2022' },
+//   { id: 1005, description: 'Activate account', status: 'Closed', date: 'May-28-2022' },
+//   { id: 1007, description: 'Great job', status: 'Closed', date: 'May-29-2022' },
+//   { id: 1008, description: 'Another Great Job', status: 'Closed', date: 'May-29-2022' },
+//   { id: 1000, description: 'Help with Login', status: 'Closed', date: 'May-29-2022' },
+//   { id: 1024, description: 'Happy Customer', status: 'Open', date: 'May-29-2022' },
+// ];
 
 const StyledTableCell = styled(TableCell)(() => ({
   fontWeight: 'bold',
@@ -48,6 +50,17 @@ const AddButton = styled(Button)(({ theme }) => ({
 }));
 
 const TicketTable = () => {
+  const [tickets,setTickets] = useState<ITicket[]>([]);
+
+  const loadTickets = async () => {
+    const tickets = await getTickets();
+    setTickets(tickets);
+  };
+
+  useEffect(() => {
+    loadTickets();
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <TableContainer component={Paper}>
@@ -67,7 +80,7 @@ const TicketTable = () => {
                 <TableCell>{ticket.id}</TableCell>
                 <TableCell>{ticket.description}</TableCell>
                 <TableCell>{ticket.status}</TableCell>
-                <TableCell>{ticket.date}</TableCell>
+                <TableCell>{ticket.createdAt}</TableCell>
                 <TableCell>
                   <Box display="flex" gap={1}>
                     <ActionLink href='#'>Update</ActionLink>
