@@ -4,12 +4,6 @@ import { IPaginatedResult, ITicket } from './types';
 
 const API_URL = 'http://localhost:5000/api/Tickets';
 
-
-export const getTickets = async () : Promise<ITicket[]> => {
-  const response = await axios.get(API_URL);
-  return response.data as ITicket[];
-};
-
 export const createTicket = async (ticket:ITicket) : Promise<ITicket[]> => {
   const response = await axios.post(API_URL, ticket);
   return response.data as ITicket[];
