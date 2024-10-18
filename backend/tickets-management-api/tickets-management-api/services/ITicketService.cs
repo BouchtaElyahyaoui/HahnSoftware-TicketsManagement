@@ -6,7 +6,7 @@ namespace tickets_management_api.services
     {
         Task<IEnumerable<Ticket>> GetAllTickets();
 
-        Task<Ticket> CreateTicket(Ticket ticket);
+        Task<Ticket> CreateTicket(TicketDto ticket);
 
         Task UpdateTicket(Ticket ticket);
         Task DeleteTicket(int id);

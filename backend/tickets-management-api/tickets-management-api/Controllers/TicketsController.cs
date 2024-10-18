@@ -23,7 +23,7 @@ namespace tickets_management_api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateTicket(Ticket ticket)
+        public async Task<IActionResult> CreateTicket(TicketDto ticket)
         {
             var createdTicket = await _service.CreateTicket(ticket);
             var tickets = await _service.GetAllTickets();

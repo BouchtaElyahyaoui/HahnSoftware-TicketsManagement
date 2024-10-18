@@ -19,7 +19,7 @@
     "Parameters": [
       {
         "Name": "ticket",
-        "Type": "tickets_management_api.Models.Ticket",
+        "Type": "tickets_management_api.Models.TicketDto",
         "IsRequired": true
       }
     ],

@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import React, { useEffect, useState } from 'react';
-import { getTickets } from '../../../services/ticket/service';
+import { createTicket, getTickets } from '../../../services/ticket/service';
 import { formatDate } from '../../../services/ticket/shared/helperFunctions';
 import { ITicket, TicketStatusEnum } from '../../../services/ticket/types';
 import theme, { colors } from '../../theme';
@@ -76,9 +76,12 @@ const TicketTable = () => {
   };
 
   const handleSubmit = () => {
-    console.log('New Ticket:', newTicket);
-    handleClose();
-    setNewTicket(initTicket);
+    createTicket(newTicket).then(() => {
+      setNewTicket(initTicket);
+      handleClose();
+    }).catch(() => {
+      console.log("Error when ssubmiting the ticket");
+    })
   };
 
   const loadTickets = async () => {
