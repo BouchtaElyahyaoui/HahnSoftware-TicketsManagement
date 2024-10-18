@@ -139,7 +139,7 @@ const TicketTable = () => {
       console.log("Error when deleting the ticket");
     })
   }
-  
+
   useEffect(() => {
     loadPaginatedData();
   }, [loadPaginatedData]);
@@ -147,8 +147,10 @@ const TicketTable = () => {
   return (
     <ThemeProvider theme={theme}>
       <TableContainer component={Paper}>
-        <TableData tickets={tickets} handleDeleteTicket={handleDeleteTicket} handleEdit={handleEdit} />
-        <TableFooter handleClickOpen={handleClickOpen} page={page} pageSize={pageSize} setPage={setPage} setPageSize={setPageSize} totalPages={totalPages} />
+        <TableData tickets={tickets} handleDeleteTicket={handleDeleteTicket} handleEdit={handleEdit} handleClickOpen={handleClickOpen} />
+        {tickets.length > 0 && (
+          <TableFooter handleClickOpen={handleClickOpen} page={page} pageSize={pageSize} setPage={setPage} setPageSize={setPageSize} totalPages={totalPages} />
+        )}
       </TableContainer>
       <TicketDialog 
         handleClose={handleClose}
