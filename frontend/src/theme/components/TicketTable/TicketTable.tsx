@@ -54,6 +54,7 @@ const TicketTable = () => {
   const [tickets,setTickets] = useState<ITicket[]>([]);
   const [open, setOpen] = useState(false);
   const [newTicket, setNewTicket] = useState<ITicket>(initTicket);
+  const [descriptionError,setDescriptionError] = useState(false);
 
   const { enqueueSnackbar } = useSnackbar()
 
@@ -92,6 +93,7 @@ const TicketTable = () => {
   const handleClose = () => {
     setOpen(false);
     setNewTicket(initTicket);
+    setDescriptionError(false);
   };
 
   const handleDescriptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -109,6 +111,10 @@ const TicketTable = () => {
   };
 
   const handleSubmit = () => {
+    if(newTicket.description === '') {
+      setDescriptionError(true);
+      return;
+    }
     createTicket(newTicket).then((tickets) => {
       showSuccessMessage("Ticket has been created successfully");
       setTickets(tickets);
@@ -204,7 +210,8 @@ const TicketTable = () => {
         open={open}
         handleSubmit={handleSubmit}
         handleSubmitEdit={handleSubmitEdit}
-        ticket={newTicket} />
+        ticket={newTicket} 
+        descriptionError={descriptionError}/>
     </ThemeProvider>
   );
 };

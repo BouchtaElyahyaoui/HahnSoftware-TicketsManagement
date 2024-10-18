@@ -10,12 +10,14 @@ interface ITicketDialogProps {
   handleStatusChange:(event: SelectChangeEvent<TicketStatusEnum>) => void;
   handleSubmit: () => void;
   handleSubmitEdit: (ticket:ITicket) => void;
+  descriptionError:boolean;
 }
 
-const TicketDialog : FC<ITicketDialogProps> = ({open,ticket,handleClose,handleDescriptionChange,handleStatusChange,handleSubmit,handleSubmitEdit}) => {
+const TicketDialog : FC<ITicketDialogProps> = ({open,ticket,handleClose,handleDescriptionChange,handleStatusChange,handleSubmit,handleSubmitEdit,descriptionError}) => {
+  const isEditForm = ticket.id != 0;
   return (
     <Dialog open={open} onClose={handleClose} fullWidth>
-        <DialogTitle>Add New Ticket</DialogTitle>
+        <DialogTitle>{isEditForm ? "Edit ticket" : "Add new ticket"}</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
@@ -27,6 +29,8 @@ const TicketDialog : FC<ITicketDialogProps> = ({open,ticket,handleClose,handleDe
             variant="outlined"
             value={ticket.description}
             onChange={handleDescriptionChange}
+            error={descriptionError}
+            helperText={descriptionError ? 'This field is required!' : ' '}
           />
           <FormControl fullWidth variant="outlined" margin="dense">
             <InputLabel>Status</InputLabel>
@@ -46,13 +50,13 @@ const TicketDialog : FC<ITicketDialogProps> = ({open,ticket,handleClose,handleDe
             Cancel
           </Button>
           <Button onClick={() => {
-            if(ticket.id === 0) {
+            if(isEditForm) {
               handleSubmit();
             } else {
               handleSubmitEdit(ticket);
             }
           }} color="primary">
-            Add
+            {isEditForm ? "Edit" : "Add"}
           </Button>
         </DialogActions>
       </Dialog>
