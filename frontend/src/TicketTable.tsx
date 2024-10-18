@@ -15,6 +15,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import theme, { colors } from './theme/theme';
 import { ITicket } from './services/ticket/types';
 import { getTickets } from './services/ticket/service';
+import { formatDate } from './services/ticket/shared/helperFunctions';
 
 // const tickets = [
 //   { id: 1002, description: 'Promotion code issued', status: 'Open', date: 'May-29-2022' },
@@ -80,7 +81,7 @@ const TicketTable = () => {
                 <TableCell>{ticket.id}</TableCell>
                 <TableCell>{ticket.description}</TableCell>
                 <TableCell>{ticket.status}</TableCell>
-                <TableCell>{ticket.createdAt}</TableCell>
+                <TableCell>{formatDate(ticket.createdAt)}</TableCell>
                 <TableCell>
                   <Box display="flex" gap={1}>
                     <ActionLink href='#'>Update</ActionLink>
