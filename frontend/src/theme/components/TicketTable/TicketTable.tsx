@@ -1,7 +1,11 @@
 import {
   Box,
   Button,
+  FormControl,
+  InputLabel,
+  MenuItem,
   Paper,
+  Select,
   SelectChangeEvent,
   styled,
   Table,
@@ -12,13 +16,13 @@ import {
   TableRow
 } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
-import React, { useEffect, useState } from 'react';
-import { createTicket, deleteTicket, editTicket, getTickets } from '../../../services/ticket/service';
+import { useSnackbar } from 'notistack';
+import React, { useCallback, useEffect, useState } from 'react';
+import { createTicket, deleteTicket, editTicket, getPaginatedResult } from '../../../services/ticket/service';
 import { formatDate } from '../../../services/ticket/shared/helperFunctions';
 import { ITicket, TicketStatusEnum } from '../../../services/ticket/types';
 import theme, { colors } from '../../theme';
 import TicketDialog from '../TicketFormDialog/TicketDialog';
-import { useSnackbar } from 'notistack';
 
 const StyledTableCell = styled(TableCell)(() => ({
   fontWeight: 'bold',
@@ -50,11 +54,16 @@ const initTicket : ITicket = {
   createdAt:'',
 }
 
+
 const TicketTable = () => {
   const [tickets,setTickets] = useState<ITicket[]>([]);
   const [open, setOpen] = useState(false);
   const [newTicket, setNewTicket] = useState<ITicket>(initTicket);
+  console.log("New ticket",newTicket)
   const [descriptionError,setDescriptionError] = useState(false);
+  const [page, setPage] = useState<number>(1);
+  const [pageSize,setPageSize] = useState<number>(2);
+  const [totalPages, setTotalPages] = useState<number>(0);
 
   const { enqueueSnackbar } = useSnackbar()
 
@@ -76,15 +85,19 @@ const TicketTable = () => {
         horizontal:"center",
         vertical: "bottom",
       },
-      variant:'success',
+      variant:'error',
     });
   }
 
-
-  const loadTickets = async () => {
-    const tickets = await getTickets();
-    setTickets(tickets);
-  };
+  const loadPaginatedData = useCallback(async () => {
+    const response = await getPaginatedResult(page, pageSize);
+    const { data, totalPages } = response;
+    if(data.length === 0) {
+      setPage(1);
+    }
+    setTickets(data);
+    setTotalPages(totalPages);
+  }, [page, pageSize]);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -115,10 +128,12 @@ const TicketTable = () => {
       setDescriptionError(true);
       return;
     }
-    createTicket(newTicket).then((tickets) => {
+    createTicket(newTicket).then(() => {
       showSuccessMessage("Ticket has been created successfully");
-      setTickets(tickets);
       setNewTicket(initTicket);
+      loadPaginatedData().catch(() => {
+        console.log("Could not load new data");
+      });
       handleClose();
     }).catch(() => {
       showErrorMessage();
@@ -129,7 +144,7 @@ const TicketTable = () => {
   const handleSubmitEdit = (ticket:ITicket) => {
     editTicket(ticket.id,ticket).then(() => {
       showSuccessMessage("Ticket has been edited successfully");
-      loadTickets().catch(() => {
+      loadPaginatedData().catch(() => {
         console.log("Could not load new data");
       });
       handleClose();
@@ -147,7 +162,7 @@ const TicketTable = () => {
   const handleDeleteTicket = (id:number) => {
     deleteTicket(id).then(() => {
       showSuccessMessage("Ticket deleted successsfully")
-      loadTickets().catch(() => {
+      loadPaginatedData().catch(() => {
         console.log("Could not load new data");
       });
       handleClose();
@@ -160,8 +175,8 @@ const TicketTable = () => {
 
 
   useEffect(() => {
-    loadTickets();
-  }, []);
+    loadPaginatedData();
+  }, [loadPaginatedData]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -197,10 +212,44 @@ const TicketTable = () => {
             ))}
           </TableBody>
         </Table>
-        <Box sx={{ background: colors.background }}>
+        <Box display="flex" width="100%" justifyContent="space-between" sx={{ background: colors.background }}>
           <AddButton variant="contained" onClick={handleClickOpen}>
             Add New
           </AddButton>
+          <Box>
+        <AddButton 
+          onClick={() => setPage((prevPage) => Math.max(prevPage - 1, 1))} 
+          disabled={page === 1 || totalPages === 0}
+        >
+          Previous
+        </AddButton>
+
+        <span>Page {totalPages === 0 ? 0 : page} of {totalPages}</span>
+
+        <AddButton  
+          onClick={() => setPage((prevPage) => Math.min(prevPage + 1, totalPages))} 
+          disabled={page === totalPages || totalPages === 0}
+        >
+          Next
+        </AddButton>
+        <FormControl size='medium' variant="outlined" margin="dense">
+            <InputLabel>Page Size:</InputLabel>
+            <Select
+              name="status"
+              value={pageSize}
+              onChange={(e) => setPageSize(Number(e.target.value))}
+              label="Page Size:"
+            >
+              <MenuItem value="2">2</MenuItem>
+              <MenuItem value="10">10</MenuItem>
+              <MenuItem value="15">15</MenuItem>
+            </Select>
+          </FormControl>
+        <Box>
+
+        
+      </Box>
+          </Box>
         </Box>
       </TableContainer>
       <TicketDialog 

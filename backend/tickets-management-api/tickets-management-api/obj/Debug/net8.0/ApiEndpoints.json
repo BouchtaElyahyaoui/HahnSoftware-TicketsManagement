@@ -1,16 +1,6 @@
 [
   {
     "ContainingType": "tickets_management_api.Controllers.TicketsController",
-    "Method": "GetAllTickets",
-    "RelativePath": "api/Tickets",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "tickets_management_api.Controllers.TicketsController",
     "Method": "CreateTicket",
     "RelativePath": "api/Tickets",
     "HttpMethod": "POST",
@@ -21,6 +11,27 @@
         "Name": "ticket",
         "Type": "tickets_management_api.Models.TicketDto",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "tickets_management_api.Controllers.TicketsController",
+    "Method": "GetPaginatedTickets",
+    "RelativePath": "api/Tickets",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

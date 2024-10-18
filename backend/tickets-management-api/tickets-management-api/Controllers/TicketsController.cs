@@ -15,13 +15,6 @@ namespace tickets_management_api.Controllers
             _service = service;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAllTickets()
-        {
-            var tickets = await _service.GetAllTickets();
-            return Ok(tickets);
-        }
-
         [HttpPost]
         public async Task<IActionResult> CreateTicket(TicketDto ticket)
         {
@@ -46,6 +39,13 @@ namespace tickets_management_api.Controllers
         {
             await _service.DeleteTicket(id);
             return NoContent();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetPaginatedTickets([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
+        {
+            var tickets = await _service.GetPaginatedTickets(page, pageSize);
+            return Ok(tickets);
         }
     }
 }

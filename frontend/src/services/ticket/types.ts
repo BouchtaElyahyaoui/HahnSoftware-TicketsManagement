@@ -9,3 +9,11 @@ export interface ITicket {
   status: TicketStatusEnum;
   createdAt: string;
 }
+
+export interface IPaginatedResult {
+  data: ITicket[],
+  page: number,
+  pageSize: number,
+  totalCount: number,
+  totalPages: number,
+}

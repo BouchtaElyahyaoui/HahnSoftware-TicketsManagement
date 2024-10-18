@@ -47,5 +47,24 @@ namespace tickets_management_api.Repositories
                 await _dataContext.SaveChangesAsync();
             }
         }
+
+        public async Task<PaginatedResult<Ticket>> GetPaginatedTickets(int page, int pageSize)
+        {
+            var totalCount = await _dataContext.Tickets.CountAsync();
+            var tickets = await _dataContext.Tickets
+                .OrderBy(t => t.Id)  
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            return new PaginatedResult<Ticket>
+            {
+                Data = tickets,
+                Page = page,
+                PageSize = pageSize,
+                TotalCount = totalCount,
+                TotalPages = (int)Math.Ceiling((double)totalCount / pageSize)
+            };
+        }
     }
 }

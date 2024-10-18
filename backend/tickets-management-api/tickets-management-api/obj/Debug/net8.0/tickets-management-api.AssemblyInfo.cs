@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("tickets-management-api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bfaf32af8255f79991a1d2f8e22d889afc09928e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e93402452e9b5790188e3a5ac443b086f277f592")]
 [assembly: System.Reflection.AssemblyProductAttribute("tickets-management-api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("tickets-management-api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -51,9 +51,9 @@ const TicketDialog : FC<ITicketDialogProps> = ({open,ticket,handleClose,handleDe
           </Button>
           <Button onClick={() => {
             if(isEditForm) {
-              handleSubmit();
-            } else {
               handleSubmitEdit(ticket);
+            } else {
+              handleSubmit();
             }
           }} color="primary">
             {isEditForm ? "Edit" : "Add"}

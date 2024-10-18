@@ -31,6 +31,11 @@ namespace tickets_management_api.services
             await _repository.DeleteTicket(id);
         }
 
+        public async Task<PaginatedResult<Ticket>> GetPaginatedTickets(int page, int pageSize)
+        {
+            return await _repository.GetPaginatedTickets(page, pageSize);
+        }
+
 
     }
 }

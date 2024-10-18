@@ -9,6 +9,7 @@ namespace tickets_management_api.Repositories
         Task UpdateTicket(Ticket ticket);
         Task DeleteTicket(int id);
 
+        Task<PaginatedResult<Ticket>> GetPaginatedTickets(int page,int pageSize);
 
     }
 }
