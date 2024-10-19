@@ -1,10 +1,11 @@
 import { Box, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
-import { FC } from 'react';
-import { formatDate } from '../../../services/ticket/shared/helperFunctions';
-import { ITicket } from '../../../services/ticket/types';
-import { colors } from '../../theme';
+import { FC, useState } from 'react';
+import { formatDate } from '../../services/ticket/shared/helperFunctions';
+import { ITicket } from '../../services/ticket/types';
+import { colors } from '../../theme/theme';
 import EmptyState from '../EmptyState/EmptyState';
 import { ActionLink, StyledTableCell } from './TableData.style';
+import DeleteTicketDialogAlert from '../DeleteTicketDialogAlert/DeleteTicketDialogAlert';
 
 interface ITableDataProps {
   tickets:ITicket[];
@@ -14,7 +15,26 @@ interface ITableDataProps {
 }
 
 const TableData:FC<ITableDataProps> = ({tickets,handleEdit,handleDeleteTicket,handleClickOpen}) => {
-  return tickets.length > 0 ? (
+  const [deleteDialogOpen,setDeleteDialogOpen] = useState(false);
+  const [deletedTicketId,setDeletedTicketId] = useState<number>(0)
+
+  const handleDeleteDialogOpen = (id:number) => {
+    setDeletedTicketId(id)
+    setDeleteDialogOpen(true);
+  }
+
+  const handleOnClose = () => {
+    setDeleteDialogOpen(false);
+  }
+
+  const confirmDelete = () => {
+    if(deletedTicketId != 0) {
+      handleDeleteTicket(deletedTicketId);
+      handleOnClose();
+    }
+  }
+
+  return <> {tickets.length > 0 ? (
     <Table>
           <TableHead>
             <TableRow sx={{ backgroundColor: colors.primary }}>
@@ -38,7 +58,7 @@ const TableData:FC<ITableDataProps> = ({tickets,handleEdit,handleDeleteTicket,ha
                       handleEdit(ticket);
                     }}>Update</ActionLink>
                     <ActionLink  onClick={() => {
-                      handleDeleteTicket(ticket.id);
+                      handleDeleteDialogOpen(ticket.id)
                     }}>Delete</ActionLink>
                   </Box>
                 </TableCell>
@@ -46,7 +66,9 @@ const TableData:FC<ITableDataProps> = ({tickets,handleEdit,handleDeleteTicket,ha
             ))}
           </TableBody>
         </Table>
-          ) : (<EmptyState onAddNew={handleClickOpen} />)
+          ) : (<EmptyState onAddNew={handleClickOpen} />)}
+          <DeleteTicketDialogAlert handleClose={handleOnClose} open={deleteDialogOpen} handleDelete={confirmDelete} />
+          </>
 }
 
 export default TableData

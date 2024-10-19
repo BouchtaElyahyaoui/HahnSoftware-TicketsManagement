@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { TableCell } from "@mui/material";
-import { colors } from "../../theme";
+import { colors } from "../../theme/theme";
 
 export const StyledTableCell = styled(TableCell)(() => ({
   fontWeight: 'bold',

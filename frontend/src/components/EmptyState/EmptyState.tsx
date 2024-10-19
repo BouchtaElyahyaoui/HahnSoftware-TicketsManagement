@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material'
 import React, { FC } from 'react'
-import { colors } from '../../theme'
+import { colors } from '../../theme/theme'
 import { AddButton } from '../TableFooter/TableFooter.style'
 
 interface IEmptyStateProps  {

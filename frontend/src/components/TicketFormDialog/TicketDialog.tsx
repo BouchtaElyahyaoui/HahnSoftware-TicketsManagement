@@ -1,6 +1,6 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, TextField } from '@mui/material';
 import React, { ChangeEvent, FC } from 'react'
-import { ITicket, TicketStatusEnum } from '../../../services/ticket/types';
+import { ITicket, TicketStatusEnum } from '../../services/ticket/types';
 
 interface ITicketDialogProps {
   open:boolean;

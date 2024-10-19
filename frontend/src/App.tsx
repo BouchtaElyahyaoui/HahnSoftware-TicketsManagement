@@ -1,6 +1,6 @@
 import { Box, ThemeProvider } from "@mui/material"
-import TicketTable from "./theme/components/TicketTable/TicketTable"
-import Header from "./theme/components/Header/Header"
+import TicketTable from "./components/TicketTable/TicketTable"
+import Header from "./components/Header/Header"
 import theme from "./theme/theme"
 
 function App() {

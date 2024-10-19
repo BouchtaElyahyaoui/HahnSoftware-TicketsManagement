@@ -5,8 +5,8 @@ import {
 } from '@mui/material';
 import { useSnackbar } from 'notistack';
 import React, { useCallback, useEffect, useState } from 'react';
-import { createTicket, deleteTicket, editTicket, getPaginatedResult } from '../../../services/ticket/service';
-import { ITicket, TicketStatusEnum } from '../../../services/ticket/types';
+import { createTicket, deleteTicket, editTicket, getPaginatedResult } from '../../services/ticket/service';
+import { ITicket, TicketStatusEnum } from '../../services/ticket/types';
 import TableData from '../TableData/TableData';
 import TableFooter from '../TableFooter/TableFooter';
 import TicketDialog from '../TicketFormDialog/TicketDialog';
