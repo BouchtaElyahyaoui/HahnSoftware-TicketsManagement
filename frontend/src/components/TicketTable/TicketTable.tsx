@@ -1,4 +1,5 @@
 import {
+  Box,
   Paper,
   SelectChangeEvent,
   TableContainer
@@ -140,19 +141,14 @@ const TicketTable = () => {
     })
   }
 
-  const handleApplyFilters = () => {
-    setPage(1);
-    loadPaginatedData();
-  };
-
   useEffect(() => {
     loadPaginatedData();
   }, [loadPaginatedData]);
 
   return (
-    <>
+    <Box width="100%">
+      <FilterComponent ticketFilter={ticketFilter} setTicketFiler={setTicketFilter} />
       <TableContainer component={Paper}>
-        <FilterComponent ticketFilter={ticketFilter} setTicketFiler={setTicketFilter} onApplyFilters={handleApplyFilters} />
         <TableData tickets={tickets} handleDeleteTicket={handleDeleteTicket} handleEdit={handleEdit} handleClickOpen={handleClickOpen} />
         {tickets.length > 0 && (
           <TableFooter handleClickOpen={handleClickOpen} page={page} pageSize={pageSize} setPage={setPage} setPageSize={setPageSize} totalPages={totalPages} />
@@ -167,7 +163,7 @@ const TicketTable = () => {
         handleSubmitEdit={handleSubmitEdit}
         ticket={newTicket} 
         descriptionError={descriptionError}/>
-        </>
+        </Box>
   );
 };
 

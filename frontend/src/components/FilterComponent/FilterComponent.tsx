@@ -1,17 +1,15 @@
-import { Box, Button, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
+import { Box, FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 import { Dispatch, FC, SetStateAction } from 'react';
 import { ITicketFilter, SortByEnum, TicketStatusEnum } from '../../services/ticket/types';
 
 interface FilterBarProps {
   ticketFilter: ITicketFilter;
   setTicketFiler: Dispatch<SetStateAction<ITicketFilter>>;
-  onApplyFilters: () => void;
 }
 
 const FilterComponent: FC<FilterBarProps> = ({
   ticketFilter,
   setTicketFiler,
-  onApplyFilters,
 }) => {
   return (
     <Box sx={{ display: 'flex', gap: 2, mb: 2, alignItems: 'flex-end' }}>
@@ -37,7 +35,7 @@ const FilterComponent: FC<FilterBarProps> = ({
         <InputLabel>Sort By</InputLabel>
         <Select
           value={ticketFilter.sortBy}
-          onChange={(e) => setTicketFiler( {...ticketFilter,sortBy:e.target.value})}
+          onChange={(e) => setTicketFiler( {...ticketFilter,sortBy:e.target.value as SortByEnum})}
           label="Sort By"
         >
           <MenuItem value={SortByEnum.ID}>ID</MenuItem>
@@ -57,9 +55,6 @@ const FilterComponent: FC<FilterBarProps> = ({
           <MenuItem value="desc">Descending</MenuItem>
         </Select>
       </FormControl>
-      <Button variant="contained" onClick={onApplyFilters}>
-        Apply Filters
-      </Button>
     </Box>
   );
 };

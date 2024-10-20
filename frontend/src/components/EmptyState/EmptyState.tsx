@@ -25,7 +25,7 @@ const EmptyState :FC<IEmptyStateProps> = ({onAddNew}) => {
     <Typography variant="body1" gutterBottom>
       Get started by creating a new ticket
     </Typography>
-    <AddButton variant="contained" onClick={onAddNew} sx={{ mt: 2 }}>
+    <AddButton variant="contained" onClick={onAddNew} sx={{ mt: 2,color:colors.white }}>
       Add New Ticket
     </AddButton>
   </Box>
