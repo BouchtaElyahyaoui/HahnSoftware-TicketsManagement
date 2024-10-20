@@ -1,7 +1,7 @@
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { createTicket, deleteTicket, editTicket, getPaginatedResult } from '../service';
-import { IPaginatedResult, ITicket, TicketStatusEnum } from '../types';
+import { IPaginatedResult, ITicket, ITicketFilter, SortByEnum, TicketStatusEnum } from '../types';
 
 
 describe('Ticket API Tests', () => {
@@ -46,6 +46,12 @@ describe('Ticket API Tests', () => {
   });
 
   it('should return paginated results', async () => {
+    const ticketFiler:ITicketFilter = {
+      description:'',
+      isDescending:false,
+      sortBy:SortByEnum.ID,
+      status: null,
+    } 
     const paginatedResult: IPaginatedResult = {
       data: [
         { id: 1, description: 'Test ticket 1', status: TicketStatusEnum.OPEN, createdAt: '2024-10-19 00:02:50.7720264' },
@@ -57,9 +63,9 @@ describe('Ticket API Tests', () => {
       totalPages: 1,
     };
 
-    mock.onGet('http://localhost:5000/api/Tickets?page=1&pageSize=2').reply(200, paginatedResult);
+    mock.onGet('http://localhost:5000/api/Tickets?page=1&pageSize=2&sortBy=Id&isDescending=false').reply(200, paginatedResult);
 
-    const result = await getPaginatedResult(1, 2);
+    const result = await getPaginatedResult(1, 2,ticketFiler);
 
     expect(result).toEqual(paginatedResult);
     expect(mock.history.get.length).toBe(1);
