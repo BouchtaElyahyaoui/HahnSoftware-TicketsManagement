@@ -30,7 +30,7 @@ const TicketTable = () => {
   console.log("New ticket",newTicket)
   const [descriptionError,setDescriptionError] = useState(false);
   const [page, setPage] = useState<number>(1);
-  const [pageSize,setPageSize] = useState<number>(2);
+  const [pageSize,setPageSize] = useState<number>(10);
   const [totalPages, setTotalPages] = useState<number>(0);
   const [ticketFilter,setTicketFilter] = useState<ITicketFilter>(DEFAULT_TICKET_FILTER);
 
