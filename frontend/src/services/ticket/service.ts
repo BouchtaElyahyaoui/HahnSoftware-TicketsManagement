@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { IPaginatedResult, ITicket } from './types';
+import { IPaginatedResult, ITicket, ITicketFilter } from './types';
 
 
 const API_URL = 'http://localhost:5000/api/Tickets';
@@ -17,7 +17,8 @@ export const deleteTicket = async (id:number) : Promise<void> => {
   await axios.delete(`${API_URL}/${id}`)
 }
 
-export const getPaginatedResult = async (page:number,pageSize:number) : Promise<IPaginatedResult> => {
-  const response = await axios.get(`${API_URL}?page=${page}&pageSize=${pageSize}`);
+export const getPaginatedResult = async (page:number,pageSize:number,ticketFilter:ITicketFilter) : Promise<IPaginatedResult> => {
+  const {description,isDescending,sortBy,status} = ticketFilter;
+  const response = await axios.get(`${API_URL}?page=${page}&pageSize=${pageSize}&sortBy=${sortBy}&isDescending=${isDescending}&filterDescription=${description}&filterStatus=${status}`);
   return response.data as IPaginatedResult;
 }

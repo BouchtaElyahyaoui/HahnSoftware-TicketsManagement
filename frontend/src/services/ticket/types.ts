@@ -17,3 +17,25 @@ export interface IPaginatedResult {
   totalCount: number,
   totalPages: number,
 }
+
+
+export enum SortByEnum {
+  ID = 'Id',
+  DESCRIPTION = 'description',
+  STATUSS = 'status',
+  CREATED_AT = 'createdAt'
+}
+
+export interface ITicketFilter {
+  description:string;
+  status:TicketStatusEnum | null;
+  sortBy: string;
+  isDescending:boolean,
+}
+
+export const DEFAULT_TICKET_FILTER: ITicketFilter  = {
+  description:'',
+  isDescending: true,
+  sortBy: SortByEnum.ID,
+  status: null,
+}

@@ -11,6 +11,6 @@
     "\\tests\\tickets-management-api.Tests",
     "\\tests\\tickets-management-api.Tests\\Repository"
   ],
-  "SelectedNode": "\\src\\tickets-management-api\\tickets-management-api.csproj",
+  "SelectedNode": "\\src\\tickets-management-api\\Repositories\\TicketRepository .cs",
   "PreviewInSolutionExplorer": false
 }
