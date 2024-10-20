@@ -5,10 +5,12 @@
     "\\src\\tickets-management-api",
     "\\src\\tickets-management-api\\Controllers",
     "\\src\\tickets-management-api\\Models",
+    "\\src\\tickets-management-api\\Repositories",
+    "\\src\\tickets-management-api\\services",
     "\\tests",
     "\\tests\\tickets-management-api.Tests",
     "\\tests\\tickets-management-api.Tests\\Repository"
   ],
-  "SelectedNode": "\\tests\\tickets-management-api.Tests\\Repository\\TicketRepositoryTests.cs",
+  "SelectedNode": "\\src\\tickets-management-api\\tickets-management-api.csproj",
   "PreviewInSolutionExplorer": false
 }

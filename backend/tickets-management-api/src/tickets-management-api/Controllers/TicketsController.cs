@@ -42,9 +42,15 @@ namespace tickets_management_api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetPaginatedTickets([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
+        public async Task<IActionResult> GetPaginatedTickets(
+             [FromQuery] int page = 1,
+             [FromQuery] int pageSize = 10,
+             [FromQuery] string sortBy = "Id",
+             [FromQuery] bool isDescending = false,
+             [FromQuery] string filterDescription = null,
+             [FromQuery] TicketStatusEnum? filterStatus = null)
         {
-            var tickets = await _service.GetPaginatedTickets(page, pageSize);
+            var tickets = await _service.GetPaginatedTickets(page, pageSize, sortBy, isDescending, filterDescription, filterStatus);
             return Ok(tickets);
         }
     }

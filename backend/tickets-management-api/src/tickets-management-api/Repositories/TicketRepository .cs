@@ -48,11 +48,45 @@ namespace tickets_management_api.Repositories
             }
         }
 
-        public async Task<PaginatedResult<Ticket>> GetPaginatedTickets(int page, int pageSize)
+        public async Task<PaginatedResult<Ticket>> GetPaginatedTickets(
+            int page,
+            int pageSize,
+            string sortBy = "Id", 
+            bool isDescending = false, 
+            string filterDescription = null, 
+            TicketStatusEnum? filterStatus = null)
         {
-            var totalCount = await _dataContext.Tickets.CountAsync();
-            var tickets = await _dataContext.Tickets
-                .OrderBy(t => t.Id)  
+            var query = _dataContext.Tickets.AsQueryable();
+
+            if (!string.IsNullOrEmpty(filterDescription))
+            {
+                query = query.Where(t => t.Description.Contains(filterDescription));
+            }
+
+            if (filterStatus.HasValue)
+            {
+                query = query.Where(t => t.Status == filterStatus.Value);
+            }
+
+            switch (sortBy.ToLower())
+            {
+                case "description":
+                    query = isDescending ? query.OrderByDescending(t => t.Description) : query.OrderBy(t => t.Description);
+                    break;
+                case "status":
+                    query = isDescending ? query.OrderByDescending(t => t.Status) : query.OrderBy(t => t.Status);
+                    break;
+                case "createdat":
+                    query = isDescending ? query.OrderByDescending(t => t.CreatedAt) : query.OrderBy(t => t.CreatedAt);
+                    break;
+                default:
+                    query = isDescending ? query.OrderByDescending(t => t.Id) : query.OrderBy(t => t.Id);
+                    break;
+            }
+
+            var totalCount = await query.CountAsync();
+
+            var tickets = await query
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
@@ -66,5 +100,6 @@ namespace tickets_management_api.Repositories
                 TotalPages = (int)Math.Ceiling((double)totalCount / pageSize)
             };
         }
+
     }
 }
