@@ -78,27 +78,31 @@ namespace tickets_management_api.Tests.Controllers
         [Fact]
         public async Task GetPaginatedTickets_Returns_Ok_With_Paginated_Result()
         {
-           
+            // Arrange
             var paginatedResult = new PaginatedResult<Ticket>
             {
                 Data = new List<Ticket>
-                {
-                    new Ticket { Id = 1, Description = "Test ticket 1", Status = TicketStatusEnum.OPEN }
-                },
+        {
+            new Ticket { Id = 1, Description = "Test ticket 1", Status = TicketStatusEnum.OPEN }
+        },
                 Page = 1,
                 PageSize = 1,
-                TotalCount = 1
+                TotalCount = 1,
+                TotalPages = 1 // Assuming there's only one page of results
             };
 
-            _mockService.Setup(s => s.GetPaginatedTickets(It.IsAny<int>(), It.IsAny<int>())).ReturnsAsync(paginatedResult);
+            // Setup the mock service to return the expected result
+            _mockService.Setup(s => s.GetPaginatedTickets(1, 1, "Id", false, null, null))
+                .ReturnsAsync(paginatedResult);
 
-            
+            // Act
             var result = await _controller.GetPaginatedTickets(1, 1) as OkObjectResult;
 
-            
+            // Assert
             Assert.NotNull(result);
             Assert.Equal(200, result.StatusCode);
             Assert.Equal(paginatedResult, result.Value);
         }
+
     }
 }

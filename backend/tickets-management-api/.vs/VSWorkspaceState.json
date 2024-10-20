@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\tickets-management-api",
-    "\\src\\tickets-management-api\\Controllers",
     "\\src\\tickets-management-api\\Models",
     "\\src\\tickets-management-api\\Repositories",
     "\\src\\tickets-management-api\\services",
     "\\tests",
     "\\tests\\tickets-management-api.Tests",
+    "\\tests\\tickets-management-api.Tests\\Controllers",
     "\\tests\\tickets-management-api.Tests\\Repository"
   ],
-  "SelectedNode": "\\src\\tickets-management-api\\Repositories\\TicketRepository .cs",
+  "SelectedNode": "\\tests\\tickets-management-api.Tests\\Controllers\\TicketControllerTests.cs",
   "PreviewInSolutionExplorer": false
 }
