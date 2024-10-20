@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\tickets-management-api",
+    "\\src\\tickets-management-api\\Controllers",
+    "\\src\\tickets-management-api\\Models",
+    "\\tests",
+    "\\tests\\tickets-management-api.Tests",
+    "\\tests\\tickets-management-api.Tests\\Repository"
+  ],
+  "SelectedNode": "\\tests\\tickets-management-api.Tests\\Repository\\TicketRepositoryTests.cs",
+  "PreviewInSolutionExplorer": false
+}
