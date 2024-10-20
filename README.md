@@ -5,7 +5,8 @@
 This is a full-stack Ticket Management System built with React for the frontend and .NET for the backend. The system allows users to create, view, update, and delete tickets, with features like pagination, sorting, and filtering.
 
 ## Demonstration
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Loy2EXgiZvw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+https://github.com/user-attachments/assets/d78a24ad-5cfe-493c-a0c3-7b8600b9f5b0
+
 
 ## Project Structure
 
