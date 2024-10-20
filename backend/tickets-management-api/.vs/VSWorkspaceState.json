@@ -11,6 +11,5 @@
     "\\tests\\tickets-management-api.Tests\\Controllers",
     "\\tests\\tickets-management-api.Tests\\Repository"
   ],
-  "SelectedNode": "\\tests\\tickets-management-api.Tests\\Controllers\\TicketControllerTests.cs",
   "PreviewInSolutionExplorer": false
 }

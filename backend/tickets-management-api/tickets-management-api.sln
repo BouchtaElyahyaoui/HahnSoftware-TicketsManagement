@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tickets-management-api", "src\tickets_management_api\tickets-management-api.csproj", "{5012FD7F-F72E-4965-B53B-B8E6117F0F04}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tickets-management-api", "src\tickets-management-api\tickets-management-api.csproj", "{5012FD7F-F72E-4965-B53B-B8E6117F0F04}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D2B3BE63-0B7B-457D-BDD1-FEE7E99E194A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tickets-management-api.Tests", "tests\tickets-management-api.Tests\tickets-management-api.Tests.csproj", "{171BF092-04EE-41EE-A6ED-BFCC44D1984A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,11 +19,18 @@ Global
 		{5012FD7F-F72E-4965-B53B-B8E6117F0F04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5012FD7F-F72E-4965-B53B-B8E6117F0F04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5012FD7F-F72E-4965-B53B-B8E6117F0F04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{171BF092-04EE-41EE-A6ED-BFCC44D1984A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{171BF092-04EE-41EE-A6ED-BFCC44D1984A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{171BF092-04EE-41EE-A6ED-BFCC44D1984A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{171BF092-04EE-41EE-A6ED-BFCC44D1984A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6F01C0E9-46C1-4BFD-A3B4-13A848F31E2B}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{171BF092-04EE-41EE-A6ED-BFCC44D1984A} = {D2B3BE63-0B7B-457D-BDD1-FEE7E99E194A}
 	EndGlobalSection
 EndGlobal

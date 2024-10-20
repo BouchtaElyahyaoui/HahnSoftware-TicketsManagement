@@ -70,8 +70,7 @@
               "RelativeToolTip": "src\\tickets-management-api\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-20T15:51:19.529Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-20T15:51:19.529Z"
             },
             {
               "$type": "Document",
@@ -83,8 +82,7 @@
               "RelativeToolTip": "src\\tickets-management-api\\Repositories\\ITicketRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T13:55:54.508Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-20T13:55:54.508Z"
             },
             {
               "$type": "Document",
@@ -96,8 +94,7 @@
               "RelativeToolTip": "src\\tickets-management-api\\Repositories\\TicketRepository .cs",
               "ViewState": "AgIAAC0AAAAAAAAAAAAAADIAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T13:54:33.59Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-20T13:54:33.59Z"
             },
             {
               "$type": "Document",
@@ -109,8 +106,7 @@
               "RelativeToolTip": "src\\tickets-management-api\\Program.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAAADoAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T13:35:20.654Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-20T13:35:20.654Z"
             },
             {
               "$type": "Document",
@@ -171,8 +167,7 @@
               "RelativeToolTip": "tests\\tickets-management-api.Tests\\Repository\\TicketRepositoryTests.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAACIAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-20T13:03:59.513Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-20T13:03:59.513Z"
             },
             {
               "$type": "Document",
